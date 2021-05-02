@@ -13,13 +13,13 @@ public class Car {
 		return distance;
 	}
 
-	public Car(String string, int i) {
-		this.name = string;
-		this.distance = i;
+	public Car(String name, int distance) {
+		this.name = name;
+		this.distance = distance;
 	}
 
-	public void isDrive(int i) {
-		if(CarRule.isDrive(i)) {
+	public void isDrive(int randomNo) {
+		if(CarRule.isDrive(randomNo)) {
 			go();
 		}
 	}
