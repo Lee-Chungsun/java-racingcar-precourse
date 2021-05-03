@@ -18,6 +18,10 @@ public class CarValidateUtils {
 			MessageCreateUtils.printCarNmaeLimit();
 			return false;
 		}
+		if(PASS_CAR_CNT == 1) {
+			MessageCreateUtils.printCarCntLimit();
+			return false;
+		}
 		return true;
 	}
 
