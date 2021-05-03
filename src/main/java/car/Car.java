@@ -1,10 +1,12 @@
 package car;
 
+import utils.CarValidateUtils;
+
 public class Car {
 
 	private final String name;
 	private int distance;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -19,11 +21,11 @@ public class Car {
 	}
 
 	public void isDrive(int randomNo) {
-		if(CarRule.isDrive(randomNo)) {
+		if (CarValidateUtils.isDrive(randomNo)) {
 			go();
 		}
 	}
-	
+
 	public void go() {
 		distance++;
 	}

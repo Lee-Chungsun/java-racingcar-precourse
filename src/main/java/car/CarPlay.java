@@ -30,46 +30,35 @@ public class CarPlay {
 
 	public void play() {
 		MessageCreateUtils.printRoundResult();
-		for(int rd = 0; rd<playRound;rd++) {
+		for (int rd = 0; rd < playRound; rd++) {
 			move();
 		}
 	}
-	
+
 	public void move() {
-		for(Car car : playCars) {
+		for (Car car : playCars) {
 			car.isDrive(RandomNumUtils.getRandomNum());
 		}
 		MessageCreateUtils.printCurrentStatus(playCars);
 	}
-	
+
 	public void end() {
 		MessageCreateUtils.printResult(getWinner(playCars));
 	}
 
 	public void carInput() {
 		boolean playYN = false;
+		String playCar = "";
+		String[] arrCar = null;
 		while (!playYN) {
 			playCars = new ArrayList<Car>();
 			MessageCreateUtils.printCarRaceStart();
-			String playCar = scan.next();
-			playYN = checkPlayCar(playCar);
+			playCar = scan.next();
+			arrCar = playCar.split(CarValidateUtils.getCarNameCsv());
+			playYN = CarValidateUtils.checkPlayCar(arrCar);
 		}
-	}
-
-	public boolean checkPlayCar(String playCar) {
-		String[] arrCar = playCar.split(CarRule.getCarNameCsv());
 		for (String strCar : arrCar) {
-			createPlayCar(strCar);
-		}
-		if (arrCar.length == playCars.size()) {
-			return true;
-		}
-		return false;
-	}
-
-	public void createPlayCar(String playCar) {
-		if (CarValidateUtils.carNameCheck(playCar)) {
-			Car car = new Car(playCar, 0);
+			Car car = new Car(strCar, 0);
 			playCars.add(car);
 		}
 	}
@@ -80,13 +69,9 @@ public class CarPlay {
 		while (!playYN) {
 			MessageCreateUtils.printTryRoundCount();
 			round = scan.next();
-			playYN = checkRound(round);
+			playYN = CarValidateUtils.checkRound(round);
 		}
 		playRound = Integer.parseInt(round);
-	}
-
-	public boolean checkRound(String round) {
-		return CarValidateUtils.checkRound(round);
 	}
 
 	public List<String> getWinner(List<Car> cars) {

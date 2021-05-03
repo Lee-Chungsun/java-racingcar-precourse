@@ -7,6 +7,7 @@ import car.Car;
 public class MessageCreateUtils {
 
 	private final static String CAR_RACE_START = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
+	private final static String CAR_NAME_LIMIT = "자동차의 이름은 5자리 이하입니다.";
 	private final static String TRY_ROUND_COUNT = "시도할 회수는 몇 회인가요?";
 	private final static String ROUND_RESULT = "실행 결과";
 	private final static String ROUND_VALIDATE_MSG = "회수는  숫자만 입력 가능합니다.";
@@ -17,6 +18,10 @@ public class MessageCreateUtils {
 		print(CAR_RACE_START);
 	}
 
+	public static void printCarNmaeLimit() {
+		print(CAR_NAME_LIMIT);
+	}
+	
 	public static void printTryRoundCount() {
 		print(TRY_ROUND_COUNT);
 	}
