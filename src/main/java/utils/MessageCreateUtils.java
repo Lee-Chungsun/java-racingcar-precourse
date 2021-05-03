@@ -14,6 +14,7 @@ public class MessageCreateUtils {
 	private final static String ROUND_VALIDATE_MSG = "회수는  숫자만 입력 가능합니다.";
 	private final static String RESULT_MSG = "가 최종 우승했습니다.";
 	private final static String DISTANCE_MARK = "-";
+	private final static String MSG_CSV = " : ";
 
 	public static void printCarRaceStart() {
 		print(CAR_RACE_START);
@@ -44,7 +45,7 @@ public class MessageCreateUtils {
 	}
 
 	public static void printCurrentStatus(List<Car> playCar) {
-		playCar.forEach(car -> System.out.println(car.getName() + " : " + status(car.getDistance())));
+		playCar.forEach(car -> System.out.println(car.getName() + MSG_CSV + status(car.getDistance())));
 		System.out.println();
 	}
 
