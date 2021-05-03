@@ -3,6 +3,7 @@ package utils;
 public class CarValidateUtils {
 
 	private final static int CAR_NAME_LIMIT_SIZE = 5;
+	private final static int CAR_CNT_MINIMUM = 1;
 	private final static int DRIVE_MINIMUM_LIMIT = 4;
 	private final static String CAR_NAME_CSV = ",";
 	
@@ -18,7 +19,7 @@ public class CarValidateUtils {
 			MessageCreateUtils.printCarNmaeLimit();
 			return false;
 		}
-		if(PASS_CAR_CNT == 1) {
+		if(PASS_CAR_CNT == CAR_CNT_MINIMUM) {
 			MessageCreateUtils.printCarCntLimit();
 			return false;
 		}
